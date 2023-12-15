@@ -1,4 +1,4 @@
-#API_FOLDER="/root/.bash-api/"
+
 trepa="F"
 
 to-config(){
