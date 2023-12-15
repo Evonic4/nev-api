@@ -29,7 +29,7 @@ error(){
 listening(){
     printf "Listening on port ${PORT}"
     while true;do
-        cat "${API_FOLDER}/temp" | nc -ln ${PORT} -q 1 > >(
+        cat "${API_FOLDER}/temp" | nc -ln -p ${PORT} -q 1 > >(
        	while read line;do
             line=$(echo "${line}" | tr -d '[\r\n]')
             if echo "${line}" | grep -qE '^GET /' ;then
