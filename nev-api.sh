@@ -7,7 +7,6 @@ HOOK_FILE="${API_FOLDER}/hook.sh"
 LOG_FILE="${API_FOLDER}/log.txt"
 PORT=$(sed -n 1"p" $API_FOLDER"settings.conf" | tr -d '\r')
 echo "$(date '+%Y-%m-%d %H:%M:%S')  |  Start nev-api ver "$ver >> "${LOG_FILE}"
-cp -f $API_FOLDER"settings.conf" $API_FOLDER"sett.conf"
 
 
 commands(){
