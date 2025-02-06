@@ -26,10 +26,10 @@ if [[ "${REQUEST}" == /in* ]];then	#/in_chat_req -> OK
 			mi_num=$(cat $API_FOLDER"api.txt" | grep -n $ch":" | awk -F":" '{print $1}' | tr -d '\r')
 			if ! [ -z "$mi_num" ]; then
 				to-config;
-				echo "$(date '+%Y-%m-%d %H:%M:%S')  | CHANGE "$ch":"$req >> "${LOG_FILE}"
+				echo "$(date '+%Y-%m-%d %H:%M:%S')  | CHANGE "$ch":"$req
 			else
 				echo $ch":"$req >> $API_FOLDER"api.txt"
-				echo "$(date '+%Y-%m-%d %H:%M:%S')  | ADD "$ch":"$req >> "${LOG_FILE}"
+				echo "$(date '+%Y-%m-%d %H:%M:%S')  | ADD "$ch":"$req
 			fi
 			reply "200 OK           "
 		else
@@ -46,7 +46,7 @@ if [[ "${REQUEST}" == /out* ]];then	#/out_chat  -> req
 		mi_num=$(cat $API_FOLDER"api.txt" | grep -n $ch":" | awk -F":" '{print $1}' | tr -d '\r')
 		if ! [ -z "$mi_num" ]; then
 			req=$(sed -n $mi_num"p" $API_FOLDER"api.txt"| awk -F":" '{print $2}' | tr -d '\r')
-			echo "$(date '+%Y-%m-%d %H:%M:%S')  | OUT "$ch":"$req >> "${LOG_FILE}"
+			echo "$(date '+%Y-%m-%d %H:%M:%S')  | OUT "$ch":"$req
 			reply "200 OK      |"$req
 		else
 			error
@@ -57,7 +57,7 @@ if [[ "${REQUEST}" == /out* ]];then	#/out_chat  -> req
 fi
 if [[ "${REQUEST}" == "/ping" ]];then
 	trepa="K"
-	echo "$(date '+%Y-%m-%d %H:%M:%S')  | PONG " >> "${LOG_FILE}"
+	echo "$(date '+%Y-%m-%d %H:%M:%S')  | PONG "
 	reply "200 OK | PONG"
 fi
 if [[ "${REQUEST}" == "/cls" ]];then
@@ -65,7 +65,7 @@ if [[ "${REQUEST}" == "/cls" ]];then
 	cp -f $API_FOLDER"api.txt" $API_FOLDER"bkp_api_"$(date '+%Y%m%d%H%M%S')".txt"
 	rm -f $API_FOLDER"api.txt"
 	touch $API_FOLDER"api.txt"
-	echo "$(date '+%Y-%m-%d %H:%M:%S')  | CLS " >> "${LOG_FILE}"
+	echo "$(date '+%Y-%m-%d %H:%M:%S')  | CLS "
 	reply "200 OK |    CLS"
 fi
 

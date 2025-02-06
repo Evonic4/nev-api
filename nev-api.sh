@@ -4,13 +4,12 @@
 ver="0.1"
 API_FOLDER="/usr/share/nev-api/"
 HOOK_FILE="${API_FOLDER}/hook.sh"
-LOG_FILE="${API_FOLDER}/log.txt"
-PORT=$(sed -n 1"p" $API_FOLDER"settings.conf" | tr -d '\r')
-echo "$(date '+%Y-%m-%d %H:%M:%S')  |  Start nev-api ver "$ver >> "${LOG_FILE}"
+PORT="9444"
+echo "$(date '+%Y-%m-%d %H:%M:%S')  |  Start nev-api ver "$ver
 
 
 commands(){
-    echo "$(date '+%Y-%m-%d %H:%M:%S')  |  Request : ${REQUEST}" >> "${LOG_FILE}"
+    echo "$(date '+%Y-%m-%d %H:%M:%S')  |  Request : ${REQUEST}"
     source "${HOOK_FILE}"
 }
 
